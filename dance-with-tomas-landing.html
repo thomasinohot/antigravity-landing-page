@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Dance Lessons NYC | Dance with Tomas — Champion Instructor Manhattan</title>
+<meta name="description" content="Private first dance lessons in New York City with 2x U.S. & World Champion Tomas Mielnicki. Free 20-min consultation. Spring Special — up to 30% off. Limited spots.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+:root {
+  --navy:       #0B0F2E;
+  --navy-mid:   #111936;
+  --navy-card:  #1a2040;
+  --navy-deep:  #060A1E;
+  --gold:       #C9A84C;
+  --gold-soft:  rgba(201,168,76,0.18);
+  --gold-border:rgba(201,168,76,0.35);
+  --teal:       #4ECDC4;
+  --teal-soft:  rgba(78,205,196,0.15);
+  --white:      #FFFFFF;
+  --soft-white: #E8E4DC;
+  --muted:      rgba(232,228,220,0.65);
+  --fog:        rgba(11,15,46,0.85);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; line-height: 1.7; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s ease, backdrop-filter 0.4s;
+}
+nav.scrolled {
+  background: rgba(11,15,46,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-border);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--soft-white); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { background: transparent; border: 1.5px solid var(--gold); color: var(--white); padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; cursor: pointer; transition: background 0.25s, color 0.25s; text-decoration: none; }
+.nav-cta:hover { background: var(--gold); color: var(--navy); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-block;
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.15s;
+  text-transform: uppercase;
+}
+.btn-primary:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+.btn-gold-fill {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.btn-gold-fill:hover { background: #b8942e; color: var(--navy); }
+.btn-teal-fill {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--navy-deep);
+  padding: 18px 44px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s;
+  text-transform: uppercase;
+}
+.btn-teal-fill:hover { background: #3abeb5; transform: translateY(-2px); }
+
+/* ─── SECTION LABELS ─── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* IMAGE SLOT: hero-bg — Replace the gradient below with:
+   background-image: url('YOUR_COUPLE_DANCING_FLORAL_DRESS_PHOTO.jpg');
+   The fog overlay (.hero-fog) will automatically darken it for readability. */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://lh3.googleusercontent.com/d/1t-0-JzSMYq9HETQzbwegyOrCp6mmQ6hF');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  transition: transform 0.1s linear;
+}
+
+.hero-fog {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(58,28,74,0.85) 0%, rgba(11,15,46,0.3) 100%);
+  z-index: 1;
+}
+
+/* Removed shapes CSS as requested */
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 24px;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--soft-white);
+  margin-bottom: 12px;
+}
+.hero-body {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 36px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-cta-group { margin-bottom: 40px; }
+.hero-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(232,228,220,0.55);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2.2s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 4;
+}
+
+/* ─── ABOUT ─── */
+.about-section {
+  background: var(--navy);
+  padding: 110px 48px;
+}
+.about-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.about-header { text-align: center; margin-bottom: 70px; }
+.about-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--white);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* IMAGE SLOT: tomas-portrait — Replace background with:
+   background-image: url('YOUR_TOMAS_BLACK_BACKGROUND_PORTRAIT.jpg');
+   background-size: cover; background-position: top center; */
+.tomas-portrait {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #1a2a6c 0%, #0B0F2E 100%);
+  background-size: cover;
+  background-position: top center;
+  border: 1px solid var(--gold-border);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.portrait-placeholder {
+  font-size: 12px;
+  color: rgba(201,168,76,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px;
+  text-align: center;
+}
+.about-right {}
+.credentials-list {
+  list-style: none;
+  margin-bottom: 36px;
+}
+.credentials-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  font-size: 15px;
+  color: var(--soft-white);
+}
+.credentials-list li::before {
+  content: '●';
+  color: var(--gold);
+  font-size: 8px;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.about-story {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+.about-pullquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--teal);
+  line-height: 1.4;
+  border-left: 3px solid var(--teal);
+  padding-left: 20px;
+}
+
+/* ─── FAQ ─── */
+.faq-section {
+  background: var(--navy-mid);
+  padding: 110px 48px;
+}
+.faq-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.faq-header { text-align: center; margin-bottom: 60px; }
+.faq-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.accordion-item {
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.accordion-item:hover { border-color: var(--gold-border); }
+.accordion-item.open { border-color: var(--gold); }
+.accordion-trigger {
+  width: 100%;
+  background: rgba(201,168,76,0.04);
+  border: none;
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  padding: 22px 28px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.25s;
+}
+.accordion-trigger:hover { background: rgba(201,168,76,0.08); }
+.accordion-item.open .accordion-trigger { background: rgba(201,168,76,0.1); color: var(--gold); }
+.accordion-icon {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  transition: transform 0.3s;
+}
+.accordion-item.open .accordion-icon { transform: rotate(45deg); }
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+.accordion-item.open .accordion-body { max-height: 500px; }
+.accordion-body p {
+  padding: 4px 28px 28px;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.faq-tagline {
+  text-align: center;
+  margin-top: 56px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--teal);
+  letter-spacing: 0.02em;
+}
+
+/* ─── GALLERY ─── */
+.gallery-section {
+  background: var(--navy);
+  padding: 110px 48px;
+}
+.gallery-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.gallery-header { text-align: center; margin-bottom: 20px; }
+.gallery-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.gallery-header .gallery-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 50px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* IMAGE SLOTS: gallery images */
+/* gallery-1: Use couple dancing floral dress performance photo */
+/* gallery-2: Use competition ballroom dance couple (black/white dress) */
+/* gallery-3: Use any additional dance photo */
+.gallery-img {
+  aspect-ratio: 4/5;
+  border-radius: 10px;
+  border: 1px solid var(--gold-border);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.gallery-1 { background: linear-gradient(160deg, #1e3a6e 0%, #0B0F2E 100%); }
+.gallery-2 { background: linear-gradient(160deg, #2a1060 0%, #0B0F2E 100%); }
+.gallery-3 { background: linear-gradient(160deg, #0d3550 0%, #0B0F2E 100%); }
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,15,46,0.7) 0%, transparent 50%);
+}
+.gallery-label {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  font-size: 11px;
+  color: rgba(201,168,76,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.gallery-caption {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--soft-white);
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-section {
+  background: var(--navy-mid);
+  padding: 110px 48px;
+}
+.testimonials-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.testimonials-header { text-align: center; margin-bottom: 60px; }
+.testimonials-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 600;
+  color: var(--white);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.testimonials-grid .testimonial-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: var(--navy-card);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 32px 28px;
+}
+.testimonial-card blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--soft-white);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.testimonial-card cite {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+/* ─── PRICING ─── */
+.pricing-section {
+  background: var(--navy);
+  padding: 110px 48px;
+}
+.pricing-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pricing-header { text-align: center; margin-bottom: 20px; }
+.pricing-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 50px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+.pricing-header h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.pricing-subtext {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 580px;
+  margin: 16px auto 56px;
+  text-align: center;
+}
+.pricing-cards {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pricing-card {
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 28px 22px;
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.pricing-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); }
+.pricing-card.popular {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.06);
+}
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.pricing-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.pricing-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.pricing-card-save {
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.pricing-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.pricing-price-original {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-bottom: 20px;
+}
+.pricing-features {
+  list-style: none;
+  margin-bottom: 28px;
+  flex: 1;
+}
+.pricing-features li {
+  font-size: 13px;
+  color: var(--soft-white);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--teal);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.pricing-card .btn-primary {
+  width: 100%;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 12px;
+}
+.pricing-fine {
+  text-align: center;
+  margin-top: 44px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ─── QUIZ ─── */
+.quiz-section {
+  background: var(--navy-mid);
+  padding: 110px 48px;
+}
+.quiz-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.quiz-header { text-align: center; margin-bottom: 50px; }
+.quiz-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.quiz-header p { font-size: 16px; color: var(--muted); }
+.quiz-progress-bar {
+  background: rgba(255,255,255,0.08);
+  height: 4px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.quiz-step { display: none; }
+.quiz-step.active { display: block; }
+.quiz-step h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.quiz-option {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--soft-white);
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  user-select: none;
+}
+.quiz-option:hover { border-color: var(--gold-border); background: var(--gold-soft); }
+.quiz-option.selected { border-color: var(--gold); background: rgba(201,168,76,0.15); color: var(--white); }
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+.quiz-step-count { font-size: 13px; color: var(--muted); }
+.btn-quiz {
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-quiz:hover { background: var(--gold); color: var(--navy); }
+.btn-quiz:disabled { opacity: 0.35; cursor: not-allowed; }
+.quiz-result { display: none; text-align: center; }
+.quiz-result.active { display: block; }
+.result-card {
+  background: rgba(201,168,76,0.08);
+  border: 1.5px solid var(--gold);
+  border-radius: 12px;
+  padding: 48px 36px;
+}
+.result-card .result-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.result-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.result-card .result-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.result-card p { font-size: 16px; color: var(--muted); margin-bottom: 32px; }
+.result-card .btn-primary { font-size: 15px; }
+
+/* ─── BOOKING CTA ─── */
+.cta-section {
+  background: var(--navy);
+  padding: 130px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(78,205,196,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+.cta-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.cta-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3.5vw, 38px);
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+.cta-note {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy-deep);
+  padding: 48px;
+  border-top: 1px solid var(--gold-border);
+}
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 13px; color: var(--muted); }
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.footer-col p, .footer-col a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  max-width: 1140px;
+  margin: 32px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(232,228,220,0.3);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  nav { padding: 16px 32px; }
+  .nav-links { gap: 20px; }
+  .about-section, .faq-section, .gallery-section, .testimonials-section,
+  .pricing-section, .quiz-section, .cta-section { padding: 80px 32px; }
+  .pricing-card { min-width: 160px; }
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(11,15,46,0.98);
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    z-index: 99;
+  }
+  .nav-links.open a { font-size: 22px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .tomas-portrait { aspect-ratio: 1/1; max-height: 400px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-img { aspect-ratio: 16/9; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonials-grid .testimonial-card:last-child:nth-child(odd) { grid-column: auto; max-width: 100%; }
+  .pricing-cards { flex-direction: column; align-items: center; }
+  .pricing-card { min-width: 100%; max-width: 360px; }
+  .quiz-options { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .about-section, .faq-section, .gallery-section, .testimonials-section,
+  .pricing-section, .quiz-section, .cta-section { padding: 70px 20px; }
+  footer { padding: 36px 20px; }
+}
+
+/* ─── SCROLL REVEAL PREP ─── */
+/* ─── COLOR GRADIENT OVERRIDES ─── */
+.about-section { background: linear-gradient(135deg, #166068 0%, #0B0F2E 100%) !important; }
+.faq-section { background: linear-gradient(135deg, #4A1C40 0%, #0B0F2E 100%) !important; }
+.gallery-section { background: linear-gradient(135deg, #3a1c4a 0%, #8B2E5C 100%) !important; }
+.testimonials-section { 
+  background-image: url('file:///Users/tomaszmielnicki/.gemini/antigravity/scratch/sunset.jpg') !important; 
+  background-size: cover !important; 
+  background-attachment: fixed !important; 
+  background-position: center !important; 
+  position: relative;
+}
+.testimonials-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%); z-index: 0;
+}
+.testimonials-inner { position: relative; z-index: 2; }
+.pricing-section { background: linear-gradient(135deg, #0B0F2E 0%, #523f11 100%) !important; }
+.quiz-section { background: linear-gradient(135deg, #111936 0%, #060A1E 100%) !important; }
+
+/* ─── NEW ABOUT IMAGES ─── */
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  align-items: start;
+}
+.portrait-img {
+  width: 100%; 
+  height: auto;
+  border-radius: 12px; border: 1px solid var(--gold-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: block;
+}
+.dancing-img {
+  width: 100%; 
+  height: auto;
+  border-radius: 12px; border: 1px solid var(--gold-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .portrait-img { aspect-ratio: 3/4; }
+}
+
+.reveal { opacity: 0; transform: translateY(30px); }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo"><img src="file:///Users/tomaszmielnicki/.gemini/antigravity/scratch/logo.jpg" alt="Dance with Tomasz Logo" style="height:90px; width:auto; vertical-align:middle;"></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#quiz">Find My Plan</a></li>
+    <li><a href="#booking" class="nav-cta">Book Free Call</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<!-- IMAGE SLOT: hero-bg — Use the couple dancing with floral dress (performance photo with purple stage lights).
+     Set on .hero-bg: background-image: url('YOUR_IMAGE.jpg'); background-size: cover; background-position: center; -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-fog"></div>
+
+  <div class="hero-content" id="hero-content">
+    <h1>Wedding Dance Lessons in New York City<br>with a Champion</h1>
+    <p style="font-family:'Playfair Display',serif; font-size:clamp(28px, 4vw, 46px); font-style:italic; color:var(--gold); margin: 28px 0; line-height: 1.2;">This is your special moment.<br>Trust me, the choice is one — Dance With Tomasz.</p>
+    <p class="hero-subtitle" style="margin-bottom: 40px; font-size: 20px;">Your first dance. Your song. Your way — even if you can't dance.</p>
+    <div class="hero-cta-group" style="margin-bottom: 24px;">
+      <a href="#booking" class="btn-teal-fill">Book Free Consultation &rarr;</a>
+    </div>
+    <div class="hero-badge" style="margin-top: 16px; background: rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.1); color: var(--soft-white); padding: 10px 24px; font-size: 11px;">Spring Special — Up to 30% Off &nbsp;·&nbsp; Limited Spots</div>
+    <p class="hero-quote">"Those who were seen dancing were thought to be insane by those who could not hear the music."<br><em>— Friedrich Nietzsche</em></p>
+  </div>
+
+  <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>
+
+
+
+<!-- ── ABOUT ── -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-header reveal">
+      <span class="section-label">Meet Your Instructor</span>
+      <h2>Tomas Mielnicki</h2>
+    </div>
+    <div class="about-grid">
+
+      <div class="about-images reveal">
+        <img src="file:///Users/tomaszmielnicki/.gemini/antigravity/scratch/tomas-portrait.jpg" class="portrait-img" alt="Tomas Portrait">
+        <img src="file:///Users/tomaszmielnicki/.gemini/antigravity/scratch/tomas-dancing.jpg" class="dancing-img" alt="Tomas Dancing">
+      </div>
+
+      <div class="about-right reveal">
+        <ul class="credentials-list">
+          <li>2x U.S. &amp; World Professional American Smooth Champion</li>
+          <li>World American Smooth Show Dance Champion</li>
+          <li>Multiple-time Polish 10 Dance Champion</li>
+          <li>Choreographer — So You Think You Can Dance</li>
+          <li>Featured Performer — Dancing With The Stars, Disney's Enchanted</li>
+          <li>Performed with Garou, Zucchero, Ace of Base, Gypsy Kings</li>
+          <li>30+ years teaching every level — beginners to champions</li>
+          <li>Licensed NDCA &amp; PTT Instructor, Coach, and Adjudicator</li>
+          <li>Master's Degree in Law, Administration &amp; Economy</li>
+        </ul>
+        <p class="about-story">Tomas became a U.S. champion in one year. The secret wasn't better technique or more practice. He stopped thinking about the steps and started feeling the music. He danced his soul out loud — so everyone could join his trip, his happiness, his joy. Because that's what dance does to you when you really dance.</p>
+        <blockquote class="about-pullquote">"The steps become a dance when you let your soul speak through your body."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <span class="section-label">Your Questions Answered</span>
+      <h2>Everything You're Wondering</h2>
+    </div>
+
+    <div class="accordion-item reveal">
+      <button class="accordion-trigger">
+        Why Learn From Tomas?
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Because your first dance isn't a performance — it's a moment between you and the person you love. Tomas is a World Champion who's been on Dancing With The Stars and in Disney's Enchanted — but honestly? His favorite stage is a small studio with two people who just want their dance to feel right. He doesn't just teach. He feels it with you.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <button class="accordion-trigger">
+        No Experience? Even Better.
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Go ahead — tell him you can't dance. He loves hearing that. It's his favorite challenge. She's nervous, he hasn't danced since middle school, neither of them knows where to start — Tomas has heard it a thousand times. And a thousand times they've walked out of that first lesson looking at each other like "wait… are we actually dancing right now?" Yes. Yes you are.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <button class="accordion-trigger">
+        Already a Dancer? Oh, Now He's Excited.
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Want something that makes the whole room go silent? Tell him. Want lifts, dips, something cinematic that nobody saw coming? Say the word. The more you want, the more he brings. Tomas has choreographed for world stages and Hollywood — if you want simple and elegant, it'll be beautiful. But if you want to go big? You just woke up the champion.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <button class="accordion-trigger">
+        Last-Minute Panic? He's Got You.
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Forgot everything the night before? Call him. Nerves hit at midnight? Text him. Freaking out five minutes before your song plays? He's right there. Tomas doesn't teach you and disappear — he's with you every step of the way. Because honestly? He's almost as excited about your moment as you are.</p>
+      </div>
+    </div>
+
+    <p class="faq-tagline">Think Better. Feel Better. Connect Better. Move Better.</p>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header reveal">
+      <span class="section-label">The Dance Floor</span>
+      <h2>Real Couples. Real Moments. Real Joy.</h2>
+      <p class="gallery-quote">"The body says what words cannot." — Martha Graham</p>
+    </div>
+    <div class="gallery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
+      <img src="file:///Users/tomaszmielnicki/.gemini/antigravity/scratch/wedding-dip.jpg" alt="Wedding Dip" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      <img src="file:///Users/tomaszmielnicki/.gemini/antigravity/scratch/tomas-dancing.jpg" alt="Tomas Dancing" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    </div>
+    <p class="gallery-caption reveal">Your dance will be built for you — your music, your style, your moment.</p>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header reveal">
+      <span class="section-label">What They Say</span>
+      <h2>Words from the Dance Floor</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <blockquote>"I've been around dance my whole life. Tomas has something rare — he makes anyone feel like they belong on the floor, no matter where they're starting from."</blockquote>
+        <cite>— Jarek Terlecki</cite>
+      </div>
+      <div class="testimonial-card reveal">
+        <blockquote>"Tomas took things I thought were impossibly complex and made them feel obvious. By the end I wondered why I ever thought dancing was hard."</blockquote>
+        <cite>— Dr. Philip O. Roux-Lough, MD</cite>
+      </div>
+      <div class="testimonial-card reveal">
+        <blockquote>"I've seen him work with people who swore they couldn't dance. Every single time — miracles. That's not an exaggeration. The man just finds a way."</blockquote>
+        <cite>— Julius Solano</cite>
+      </div>
+      <div class="testimonial-card reveal">
+        <blockquote>"We walked in with zero experience and walked out actually dancing. And laughing the whole time. Tomas makes it fun in a way you don't expect."</blockquote>
+        <cite>— Jason Klavenga</cite>
+      </div>
+      <div class="testimonial-card reveal">
+        <blockquote>"My husband always had two left feet. Always. Then Tomas got hold of him — and suddenly we were dancing together. Actually dancing. I still can't believe it."</blockquote>
+        <cite>— Aleksandra M.</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header reveal">
+      <span class="section-label">Investment</span>
+      <h2>Simple pricing.<br><em>Built for how wedding couples learn.</em></h2>
+    </div>
+    <p class="pricing-subtext reveal">Start with a free 20-minute consultation. Pick the package that fits your timeline. Most couples need between 5 and 12 lessons.</p>
+
+    <div class="pricing-cards">
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-label">20 Minutes</div>
+        <div class="pricing-card-name">Free Consultation</div>
+        <div class="pricing-price">Free</div>
+        <div class="pricing-price-original">&nbsp;</div>
+        <ul class="pricing-features">
+          <li>Meet Tomas</li>
+          <li>Talk through your song &amp; vision</li>
+          <li>Leave with a clear plan</li>
+          <li>No pressure. No obligation.</li>
+        </ul>
+        <a href="#booking" class="btn-primary">Book Free Call</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-label">50 Min · Intro Rate</div>
+        <div class="pricing-card-name">Single Lesson</div>
+        <div class="pricing-price">$139</div>
+        <div class="pricing-price-original">Was $150</div>
+        <ul class="pricing-features">
+          <li>One-on-one private instruction</li>
+          <li>Try us out risk-free</li>
+          <li>Last-minute polish option</li>
+          <li>Work on your song</li>
+        </ul>
+        <a href="#booking" class="btn-primary">Choose Single</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-label">5 Lessons</div>
+        <div class="pricing-card-name">Essential</div>
+        <div class="pricing-card-save">Save 10%</div>
+        <div class="pricing-price">$415</div>
+        <div class="pricing-price-original">Was $700 · 5×50 min</div>
+        <ul class="pricing-features">
+          <li>Ideal 4–6 weeks out</li>
+          <li>Clean, confident routine</li>
+          <li>Grip, timing, signature move</li>
+          <li>Polished ending</li>
+        </ul>
+        <a href="#booking" class="btn-primary">Choose 5</a>
+      </div>
+
+      <div class="pricing-card popular reveal">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-card-label">8 Lessons</div>
+        <div class="pricing-card-name">Signature</div>
+        <div class="pricing-card-save">Save 15%</div>
+        <div class="pricing-price">$1,110</div>
+        <div class="pricing-price-original">Was $1,300 · 8×50 min</div>
+        <ul class="pricing-features">
+          <li>The sweet spot</li>
+          <li>Personalized choreography</li>
+          <li>2–3 lifts &amp; dips</li>
+          <li>Feels truly natural</li>
+        </ul>
+        <a href="#booking" class="btn-primary btn-gold-fill">Choose 8</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-label">12 Lessons</div>
+        <div class="pricing-card-name">Premium</div>
+        <div class="pricing-card-save">Save 20%</div>
+        <div class="pricing-price">$1,660</div>
+        <div class="pricing-price-original">Was $2,080 · 12×50 min</div>
+        <ul class="pricing-features">
+          <li>Show-level first dance</li>
+          <li>Advanced styling &amp; transitions</li>
+          <li>Dramatic finale</li>
+          <li>Full confidence &amp; detail</li>
+        </ul>
+        <a href="#booking" class="btn-primary">Choose 12</a>
+      </div>
+
+    </div>
+    <p class="pricing-fine reveal">All lessons held at our Manhattan studio · 412 8th Ave, 4th Floor · NYC 10001<br>Packages are non-transferable between couples. Lessons expire 12 months from purchase.</p>
+  </div>
+</section>
+
+<!-- ── QUIZ ── -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-inner">
+    <div class="quiz-header reveal">
+      <span class="section-label">Find Your Plan</span>
+      <h2>Get Your First Dance Plan</h2>
+      <p>Answer 5 quick questions and we'll recommend the right package for you.</p>
+    </div>
+
+    <div class="quiz-progress-bar reveal">
+      <div class="quiz-progress-fill" id="quiz-progress" style="width: 20%"></div>
+    </div>
+
+    <div id="quiz-container">
+
+      <div class="quiz-step active" data-step="1">
+        <h3>When is your wedding?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="urgent">Less than 1 month</div>
+          <div class="quiz-option" data-value="soon">1–3 months</div>
+          <div class="quiz-option" data-value="moderate">3–6 months</div>
+          <div class="quiz-option" data-value="plenty">6+ months</div>
+          <div class="quiz-option" data-value="unsure">Not sure</div>
+        </div>
+        <div class="quiz-nav">
+          <span class="quiz-step-count">Step 1 of 5</span>
+          <button class="btn-quiz" id="next-1" onclick="nextStep(1)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="2">
+        <h3>What is your budget?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="low">Under $500</div>
+          <div class="quiz-option" data-value="mid">$500 – $1,000</div>
+          <div class="quiz-option" data-value="high">$1,000 – $2,000</div>
+          <div class="quiz-option" data-value="premium">$2,000+</div>
+          <div class="quiz-option" data-value="unsure">Not sure</div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz" onclick="prevStep(2)">&larr; Back</button>
+          <span class="quiz-step-count">Step 2 of 5</span>
+          <button class="btn-quiz" id="next-2" onclick="nextStep(2)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="3">
+        <h3>Dance experience?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="none">None at all</div>
+          <div class="quiz-option" data-value="one">One of us has experience</div>
+          <div class="quiz-option" data-value="both">Both of us have experience</div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz" onclick="prevStep(3)">&larr; Back</button>
+          <span class="quiz-step-count">Step 3 of 5</span>
+          <button class="btn-quiz" id="next-3" onclick="nextStep(3)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="4">
+        <h3>Do you have your song?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="yes">Yes, we have it</div>
+          <div class="quiz-option" data-value="maybe">We have a few ideas</div>
+          <div class="quiz-option" data-value="no">Not yet</div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz" onclick="prevStep(4)">&larr; Back</button>
+          <span class="quiz-step-count">Step 4 of 5</span>
+          <button class="btn-quiz" id="next-4" onclick="nextStep(4)" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="5">
+        <h3>What kind of first dance?</h3>
+        <div class="quiz-options">
+          <div class="quiz-option" data-value="simple">Simple &amp; natural</div>
+          <div class="quiz-option" data-value="elegant">Elegant &amp; refined</div>
+          <div class="quiz-option" data-value="fun">Fun &amp; playful</div>
+          <div class="quiz-option" data-value="performance">Full performance moment</div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz" onclick="prevStep(5)">&larr; Back</button>
+          <span class="quiz-step-count">Step 5 of 5</span>
+          <button class="btn-quiz btn-gold-fill" id="next-5" onclick="showResult()" disabled>See My Plan &rarr;</button>
+        </div>
+      </div>
+
+      <div class="quiz-result" id="quiz-result">
+        <div class="result-card">
+          <div class="result-label">Your Recommended Plan</div>
+          <h3 id="result-name">Signature — 8 Lessons</h3>
+          <div class="result-price" id="result-price">$1,110</div>
+          <p id="result-desc">The sweet spot. Personalized choreography with 2–3 lifts and dips. You'll feel truly natural on the floor.</p>
+          <a href="#booking" class="btn-primary">Book Your Free Consultation &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING CTA ── -->
+<section class="cta-section" id="booking">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <p class="cta-quote">"The dance is the answer — because when you dance, you're in the moment, and that's all that matters."<br><em>— Tomas Mielnicki</em></p>
+    <h2>Your first dance only happens once.</h2>
+    <h3>Make it unforgettable.</h3>
+    <a href="#" class="btn-primary" style="font-size:16px; padding: 18px 48px;">Book Your Free 20-Minute Consultation &rarr;</a>
+    <p class="cta-note">Spots are limited. We cap new couples so every one of you gets Tomas's full attention.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Dance with <span>Tomas</span></div>
+      <div class="footer-tagline">Private wedding dance lessons in New York City.<br>Championship-level instruction.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>412 8th Ave, 4th Floor</p>
+      <p>New York, NY 10001</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#booking">Book Consultation</a>
+      <a href="#pricing">Packages</a>
+      <a href="#about">About Tomas</a>
+      <a href="#quiz">Find My Plan</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Dance with Tomas · All rights reserved
+  </div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ── NAV scroll effect ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Hamburger ──
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// ── Hero entrance ──
+gsap.set(['.hero-badge', '.hero h1', '.hero-subtitle', '.hero-body', '.hero-cta-group', '.hero-quote', '.scroll-indicator'], {
+  opacity: 0, y: 28
+});
+const heroTl = gsap.timeline({ delay: 0.25 });
+heroTl
+  .to('.hero-badge',       { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+  .to('.hero h1',          { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.3')
+  .to('.hero-subtitle',    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.5')
+  .to('.hero-body',        { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4')
+  .to('.hero-cta-group',   { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4')
+  .to('.hero-quote',       { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
+  .to('.scroll-indicator', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.2');
+
+// ── Hero mouse parallax ──
+const hero = document.querySelector('.hero');
+hero.addEventListener('mousemove', (e) => {
+  const rect = hero.getBoundingClientRect();
+  const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+  const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+  gsap.to('#shapes-back', { duration: 2.0, x: xPct * -50, y: yPct * -25, ease: 'power1.out' });
+  gsap.to('#shapes-mid',  { duration: 1.5, x: xPct * -25, y: yPct * -12, ease: 'power1.out' });
+  gsap.to('#hero-content',{ duration: 1.2, x: xPct * 8,   y: yPct * 5,   ease: 'power1.out' });
+});
+
+// ── Scroll reveal ──
+document.querySelectorAll('.reveal').forEach(el => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 40 },
+    {
+      opacity: 1, y: 0,
+      duration: 0.85,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    }
+  );
+});
+
+// ── Accordion ──
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── Quiz logic ──
+const answers = {};
+let currentStep = 1;
+const totalSteps = 5;
+
+function selectOption(option, step) {
+  const parent = option.closest('.quiz-step');
+  parent.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  option.classList.add('selected');
+  answers[step] = option.dataset.value;
+  const nextBtn = document.getElementById('next-' + step);
+  if (nextBtn) nextBtn.disabled = false;
+}
+
+document.querySelectorAll('.quiz-option').forEach(option => {
+  option.addEventListener('click', function() {
+    const step = parseInt(this.closest('.quiz-step').dataset.step);
+    selectOption(this, step);
+  });
+});
+
+function nextStep(step) {
+  if (!answers[step]) return;
+  document.querySelector('[data-step="' + step + '"]').classList.remove('active');
+  const next = document.querySelector('[data-step="' + (step + 1) + '"]');
+  if (next) {
+    next.classList.add('active');
+    currentStep = step + 1;
+    document.getElementById('quiz-progress').style.width = ((currentStep / totalSteps) * 100) + '%';
+  }
+}
+
+function prevStep(step) {
+  document.querySelector('[data-step="' + step + '"]').classList.remove('active');
+  document.querySelector('[data-step="' + (step - 1) + '"]').classList.add('active');
+  currentStep = step - 1;
+  document.getElementById('quiz-progress').style.width = ((currentStep / totalSteps) * 100) + '%';
+}
+
+function showResult() {
+  if (!answers[5]) return;
+  document.querySelector('[data-step="5"]').classList.remove('active');
+  document.getElementById('quiz-progress').style.width = '100%';
+
+  const budget = answers[2];
+  const timing = answers[1];
+  const style  = answers[5];
+
+  let name, price, desc;
+
+  if (budget === 'low' || timing === 'urgent') {
+    name  = 'Essential — 5 Lessons';
+    price = '$415';
+    desc  = 'Simple, polished, and confident. The perfect first dance for couples who want to feel natural without overthinking it.';
+  } else if (budget === 'high' || budget === 'premium' || timing === 'plenty' || style === 'performance') {
+    name  = 'Premium — 12 Lessons';
+    price = '$1,660';
+    desc  = 'Full confidence, refined detail, and a performance-level result. For couples who want something truly unforgettable.';
+  } else {
+    name  = 'Signature — 8 Lessons';
+    price = '$1,110';
+    desc  = 'The sweet spot. Personalized choreography with 2–3 lifts and dips. You\'ll feel natural, confident, and genuinely excited.';
+  }
+
+  document.getElementById('result-name').textContent  = name;
+  document.getElementById('result-price').textContent = price;
+  document.getElementById('result-desc').textContent  = desc;
+  document.getElementById('quiz-result').classList.add('active');
+}
+</script>
+</body>
+</html>
